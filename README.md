@@ -1,4 +1,5 @@
 # Azure Real Estate Analytics
+Microsoft Azure Data Factory • Azure Synapse Analytics • Azure Machine Learning • SQL •Power BI
 
 โปรเจกต์วิเคราะห์ข้อมูลอสังหาริมทรัพย์แบบ End-to-End บน Microsoft Azure ตั้งแต่การนำเข้าข้อมูล การทำความสะอาดและแปลงข้อมูล การวิเคราะห์ด้วย SQL ไปจนถึงการสร้างและประเมินโมเดล Machine Learning สำหรับทำนายราคาอสังหาริมทรัพย์
 
@@ -168,7 +169,7 @@ Dashboard ใช้สำหรับสำรวจข้อมูลและ�
 - Linear Regression
 - Model Evaluation
 - Microsoft Azure
+- Power BI
 
-## เครื่องมือที่ใช้
 
-Microsoft Azure Data Factory • Azure Synapse Analytics • Azure Machine Learning • SQL
+
