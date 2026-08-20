@@ -29,8 +29,9 @@ Raw Data
 ## 1. การเตรียมข้อมูลด้วย Azure Data Factory
 
 ใช้ Azure Data Factory ในการสร้าง Data Pipeline สำหรับนำเข้าและประมวลผลข้อมูลอสังหาริมทรัพย์
-
-![ADF Pipeline](images/01-adf-pipeline.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/01-adf-pipeline.jpg" width="750" alt="ADF Pipeline">
+</p>
 
 ### Data Flow
 
