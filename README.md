@@ -20,9 +20,10 @@ Raw Data
 → Azure Data Factory  
 → Data Cleaning & Transformation  
 → Azure Synapse Analytics  
-→ SQL Analysis & Visualization  
+→ SQL Analysis  
 → Azure Machine Learning  
-→ Price Prediction
+→ Price Prediction  
+→ Power BI Dashboard
 
 ---
 
@@ -37,37 +38,48 @@ Raw Data
 
 สร้าง Mapping Data Flow เพื่อจัดเตรียมและแปลงข้อมูลก่อนส่งข้อมูลที่ผ่านการประมวลผลไปยังปลายทาง
 
-![ADF Data Flow](images/02-adf-data-flow.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/02-adf-data-flow.jpg" width="750" alt="ADF Data Flow">
+</p>
 
 ### การจัดเตรียมคอลัมน์
 
 จัดการคอลัมน์ที่ต้องการใช้สำหรับการวิเคราะห์และการสร้างโมเดลในขั้นตอนถัดไป
 
-![Remove Columns](images/03-adf-remove-columns.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/03-adf-remove-columns.jpg" width="750" alt="Remove Columns">
+</p>
 
 ### การแปลงข้อมูลราคา
 
 ใช้ Derived Column เพื่อแปลงค่าตัวแปรราคาของอสังหาริมทรัพย์ให้อยู่ในรูปแบบที่ต้องการ
 
-![Price Transformation](images/04-adf-data-transformation.png)
-
+<p align="center">
+  <img src="real-estate-azure-analytics/images/04-adf-data-transformation.jpg" width="750" alt="Price Transformation">
+</p>
 ---
 
 ## 2. การวิเคราะห์ข้อมูลด้วย Azure Synapse Analytics
 
 นำข้อมูลที่ผ่านการจัดเตรียมแล้วมาใช้งานใน Azure Synapse Analytics ผ่าน External Table
 
-![Create External Table](images/05-synapse-create-table.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/05-synapse-create-table.jpg" width="750" alt="Create External Table">
+</p>
 
 จากนั้นใช้ SQL Query เพื่อศึกษาความสัมพันธ์ระหว่างระยะทางจากสถานีรถไฟกับราคาอสังหาริมทรัพย์
 
-![SQL Query](images/06-synapse-sql-query.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/06-synapse-sql-query.jpg" width="750" alt="SQL Query">
+</p>
 
 ### การแสดงผลข้อมูล
 
 สร้าง Scatter Plot เพื่อสำรวจความสัมพันธ์ระหว่างระยะทางจากสถานีรถไฟและราคาอสังหาริมทรัพย์
 
-![Scatter Plot](images/07-synapse-scatter-plot.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/07-synapse-scatter-plot.jpg" width="750" alt="Scatter Plot">
+</p>
 
 จากกราฟสามารถสังเกตแนวโน้มได้ว่า เมื่อระยะทางจากสถานีรถไฟเพิ่มขึ้น ราคาอสังหาริมทรัพย์โดยทั่วไปมีแนวโน้มลดลง
 
@@ -75,7 +87,9 @@ Raw Data
 
 สร้าง External Table สำหรับส่งออกข้อมูลที่ผ่านการประมวลผล เพื่อนำไปใช้งานในขั้นตอนถัดไป
 
-![Export Data](images/08-synapse-export-data.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/08-synapse-export-data.jpg" width="750" alt="Export Data">
+</p>
 
 ---
 
@@ -94,7 +108,9 @@ Pipeline ประกอบด้วยขั้นตอนสำคัญ ไ�
 - Evaluate Model
 - Export Data
 
-![Azure ML Pipeline](images/09-azure-ml-pipeline.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/09-azure-ml-pipeline.jpg" width="750" alt="Azure ML Pipeline">
+</p>
 
 ---
 
@@ -110,7 +126,9 @@ Pipeline ประกอบด้วยขั้นตอนสำคัญ ไ�
 | Relative Absolute Error | 0.6563 |
 | Coefficient of Determination (R²) | ≈ 0.410 |
 
-![Model Evaluation](images/10-azure-ml-evaluation.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/10-azure-ml-evaluation.jpg" width="750" alt="Model Evaluation">
+</p>
 
 ค่า R² ประมาณ 0.41 หมายความว่าโมเดลสามารถอธิบายความแปรปรวนของราคาอสังหาริมทรัพย์ได้ประมาณ 41%
 
@@ -120,12 +138,26 @@ Pipeline ประกอบด้วยขั้นตอนสำคัญ ไ�
 
 หลังจาก Train Model แล้ว ใช้ Score Model เพื่อสร้างค่าทำนาย โดยผลลัพธ์จะแสดงทั้งราคาจริงและค่าที่โมเดลทำนายในคอลัมน์ Scored Labels
 
-![Prediction Results](images/11-azure-ml-predictions.png)
+<p align="center">
+  <img src="real-estate-azure-analytics/images/11-azure-ml-predictions.jpg" width="750" alt="Prediction Results">
+</p>
 
 ---
 
-## ทักษะที่ใช้ในโปรเจกต์
+## 6. การสร้าง Dashboard ด้วย Power BI
 
+นำข้อมูลอสังหาริมทรัพย์ที่ผ่านการจัดเตรียมและวิเคราะห์แล้วมาสร้าง Dashboard ด้วย Microsoft Power BI เพื่อสรุปและนำเสนอข้อมูลในรูปแบบที่เข้าใจง่าย
+
+Dashboard ใช้สำหรับสำรวจข้อมูลและแสดงผลตัวชี้วัดสำคัญของข้อมูลอสังหาริมทรัพย์ ช่วยให้สามารถมองเห็นแนวโน้ม รูปแบบ และความสัมพันธ์ของข้อมูลได้ชัดเจนยิ่งขึ้น
+
+<p align="center">
+  <img src="real-estate-azure-analytics/images/12-power-bi-dashboard.jpg" width="850" alt="Power BI Real Estate Dashboard">
+</p>
+
+---
+---
+
+## ทักษะที่ใช้ในโปรเจกต์
 - Data Analytics
 - Data Cleaning
 - Data Transformation
